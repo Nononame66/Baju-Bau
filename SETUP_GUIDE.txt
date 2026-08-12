@@ -1,0 +1,122 @@
+=====================================
+PANDUAN SETUP E-COMMERCE WEBSITE
+Materi Kelas 11 RPL
+=====================================
+
+LANGKAH 1: PERSIAPAN
+--------------------
+✅ Install XAMPP
+✅ Jalankan Apache dan MySQL di XAMPP Control Panel
+✅ Folder penjulan sudah ada di C:\xampp\htdocs\
+
+LANGKAH 2: BUAT DATABASE
+------------------------
+1. Buka browser, ketik: http://localhost/phpmyadmin
+2. Klik "New" atau "Baru" untuk buat database baru
+3. Nama database: ecommers10
+4. Klik "Create"
+
+LANGKAH 3: BUAT TABEL
+---------------------
+5. Pilih database "ecommers10"
+6. Klik tab "SQL"
+7. Copy-paste isi file database.sql
+8. Klik "Go" atau "Kirim"
+
+ATAU buat manual:
+
+Tabel 1: tmbbrg
+--------------
+- id_barang (INT, PRIMARY KEY, AUTO_INCREMENT)
+- seri (VARCHAR 50)
+- nama_barang (VARCHAR 100)
+- jenis (VARCHAR 50)
+- harga (BIGINT 20)
+- deskripsi (TEXT)
+- foto (VARCHAR 225)
+
+Tabel 2: transaksi
+-----------------
+- id (INT, PRIMARY KEY, AUTO_INCREMENT)
+- no_faktur (VARCHAR 50)
+- tanggal (DATE)
+- nama_pembeli (VARCHAR 100)
+- alamat (TEXT)
+- ktp (VARCHAR 50)
+- id_barang (INT)
+- jumlah (INT)
+- total (BIGINT 20)
+
+LANGKAH 4: CEK KONEKSI
+----------------------
+9. Buka file koneksi.php
+10. Pastikan settingan:
+    - Host: localhost
+    - User: root
+    - Pass: (kosong)
+    - Database: ecommers10
+
+LANGKAH 5: JALANKAN WEBSITE
+---------------------------
+11. Buka browser, ketik URL berikut:
+
+    http://localhost/penjulan/index.php        (Halaman Utama)
+    http://localhost/penjulan/tambah.php       (Tambah Barang)
+    http://localhost/penjulan/stok_barang.php  (Lihat Stok)
+
+LANGKAH 6: TAMBAH DATA BARANG
+-----------------------------
+12. Buka: http://localhost/penjulan/tambah.php
+13. Isi form:
+    - Seri: contoh "BM-001"
+    - Nama Barang: contoh "Bentley Mulsanne"
+    - Jenis: contoh "Mobil Mewah"
+    - Harga: contoh 21000000000
+    - Deskripsi: tulis deskripsi produk
+    - Foto: pilih gambar dari komputer
+14. Klik "Simpan"
+15. Data akan tersimpan di database dan foto di folder uploads/
+
+LANGKAH 7: LIHAT DAN BELI BARANG
+--------------------------------
+16. Buka: http://localhost/penjulan/stok_barang.php
+17. Klik tombol +/- untuk atur jumlah
+18. Klik "Beli Sekarang"
+19. Isi form pembelian
+20. Pilih metode pembayaran
+21. Jika pilih Transfer/E-Wallet, masukkan kode verifikasi
+22. Klik "Proses Pembelian"
+23. Struk akan tampil, bisa di-print
+
+TROUBLESHOOTING
+--------------
+❌ Error "Connection failed"?
+   → Cek MySQL di XAMPP sudah jalan
+   → Cek nama database = ecommers10
+
+❌ Upload foto gagal?
+   → Pastikan folder uploads/ ada
+   → Cek permission folder uploads/
+
+❌ Halaman blank?
+   → Cek error di console browser (F12)
+   → Cek error_log di XAMPP
+
+❌ Data tidak masuk database?
+   → Cek nama tabel = tmbbrg dan transaksi
+   → Cek struktur kolom sesuai
+
+FITUR LENGKAP
+------------
+✅ Halaman utama dengan navigasi
+✅ Tambah data barang
+✅ Upload foto produk
+✅ Tampilan stok barang dengan card
+✅ Adjust quantity dengan tombol +/-
+✅ Form pembelian lengkap
+✅ Multiple payment method
+✅ Verifikasi kode pembayaran
+✅ Cetak struk/invoice
+✅ Simpan transaksi ke database
+
+SELAMAT BELAJAR! 🚀
